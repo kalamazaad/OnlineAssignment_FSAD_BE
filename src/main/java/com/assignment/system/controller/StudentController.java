@@ -55,7 +55,9 @@ public class StudentController {
     public ResponseEntity<?> getAssignments(@PathVariable Long courseId, Authentication auth) {
         Course course = courseRepository.findById(courseId).orElseThrow(() -> new RuntimeException("Course not found"));
         User student = getCurrentStudent(auth);
-        if (!course.getStudents().contains(student)) {
+        boolean isEnrolled = course.getStudents().stream()
+                .anyMatch(s -> s.getId().equals(student.getId()));
+        if (!isEnrolled) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("You are not enrolled in this course");
         }
         return ResponseEntity.ok(assignmentRepository.findByCourse(course));
@@ -71,7 +73,9 @@ public class StudentController {
         User student = getCurrentStudent(auth);
 
         // Check enrollment
-        if (!assignment.getCourse().getStudents().contains(student)) {
+        boolean isEnrolled = assignment.getCourse().getStudents().stream()
+                .anyMatch(s -> s.getId().equals(student.getId()));
+        if (!isEnrolled) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Not enrolled in this course");
         }
 

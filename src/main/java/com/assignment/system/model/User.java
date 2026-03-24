@@ -1,10 +1,13 @@
 package com.assignment.system.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import java.util.Set;
+import java.util.HashSet;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class User {
@@ -14,6 +17,9 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String username;
+
+    @Column(unique = true)
+    private String email;
 
     @Column(nullable = false)
     private String password;
@@ -26,8 +32,10 @@ public class User {
     private Role role;
 
     @ManyToMany(mappedBy = "students")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private Set<Course> enrolledCourses;
 
     @OneToMany(mappedBy = "teacher")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private Set<Course> taughtCourses;
 }

@@ -1,11 +1,14 @@
 package com.assignment.system.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import java.util.Set;
+import java.util.HashSet;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "courses")
 public class Course {
@@ -23,11 +26,10 @@ public class Course {
     @JsonIgnore
     private User teacher;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "course_students", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "student_id"))
-    @JsonIgnore
     private Set<User> students;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Assignment> assignments;
 }

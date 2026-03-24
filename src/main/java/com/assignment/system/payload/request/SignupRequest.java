@@ -9,6 +9,10 @@ public class SignupRequest {
     private String username;
 
     @NotBlank
+    @jakarta.validation.constraints.Email
+    private String email;
+
+    @NotBlank
     private String name;
 
     @NotBlank

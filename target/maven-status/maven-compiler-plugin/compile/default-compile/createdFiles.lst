@@ -1,12 +1,15 @@
 com\assignment\system\security\UserDetailsServiceImpl.class
 com\assignment\system\repository\UserRepository.class
 com\assignment\system\security\AuthTokenFilter.class
+com\assignment\system\repository\PasswordResetTokenRepository.class
 com\assignment\system\model\Assignment.class
 com\assignment\system\repository\AssignmentRepository.class
 com\assignment\system\controller\StudentController.class
 com\assignment\system\payload\response\JwtResponse.class
 com\assignment\system\config\WebConfig.class
 com\assignment\system\model\Course.class
+com\assignment\system\controller\GlobalExceptionHandler.class
+com\assignment\system\model\PasswordResetToken.class
 com\assignment\system\payload\request\SignupRequest.class
 com\assignment\system\security\WebSecurityConfig.class
 com\assignment\system\security\AuthEntryPointJwt.class
@@ -19,6 +22,8 @@ com\assignment\system\AssignmentSystemApplication.class
 com\assignment\system\controller\AuthController.class
 com\assignment\system\model\Submission.class
 com\assignment\system\payload\request\LoginRequest.class
+com\assignment\system\payload\request\ForgotPasswordRequest.class
 com\assignment\system\security\UserDetailsImpl.class
+com\assignment\system\payload\request\ResetPasswordRequest.class
 com\assignment\system\model\User.class
 com\assignment\system\security\JwtUtils.class
