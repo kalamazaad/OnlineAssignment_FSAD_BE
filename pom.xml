@@ -11,6 +11,7 @@
     <groupId>com.assignment</groupId>
     <artifactId>system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>Assignment System</name>
     <description>Online Assignment Submission and Grading System</description>
     <properties>
