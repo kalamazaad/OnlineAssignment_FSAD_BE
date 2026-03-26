@@ -41,6 +41,7 @@ import com.assignment.system.payload.request.ForgotPasswordRequest;
 import com.assignment.system.payload.request.ResetPasswordRequest;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.beans.factory.annotation.Value;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -63,6 +64,9 @@ public class AuthController {
 
     @Autowired
     private JavaMailSender mailSender;
+
+    @Value("${app.frontendUrl:http://localhost:5173}")
+    private String frontendUrl;
 
     // A simple in-memory cache for captcha tokens mapped to expected answers.
     // In production, consider using Redis or an expiring cache like Guava/Caffeine.
@@ -232,7 +236,7 @@ public class AuthController {
         tokenRepository.save(resetToken);
 
         // Send Email
-        String url = "http://localhost:5173/reset-password?token=" + tokenString;
+        String url = frontendUrl + "/reset-password?token=" + tokenString;
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getEmail());
