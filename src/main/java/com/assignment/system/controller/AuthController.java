@@ -239,6 +239,7 @@ public class AuthController {
         String url = frontendUrl + "/reset-password?token=" + tokenString;
 
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("2400030294cse1@gmail.com");
         message.setTo(user.getEmail());
         message.setSubject("AssignFlow - Password Reset Request");
         message.setText(
@@ -247,8 +248,9 @@ public class AuthController {
         try {
             mailSender.send(message);
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.internalServerError()
-                    .body(new MessageResponse("Could not send email. Please ensure SMTP configuration is correct."));
+                    .body(new MessageResponse("Mail Error: " + e.getMessage()));
         }
 
         return ResponseEntity
