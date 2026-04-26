@@ -28,8 +28,8 @@ public class Course {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "course_students", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private Set<User> students;
+    private Set<User> students = new HashSet<>();
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Assignment> assignments;
+    private Set<Assignment> assignments = new HashSet<>();
 }
