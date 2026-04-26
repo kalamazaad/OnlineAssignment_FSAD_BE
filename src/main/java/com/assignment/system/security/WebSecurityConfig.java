@@ -110,7 +110,12 @@ public class WebSecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(Arrays.asList(
+<<<<<<< HEAD
             "https://assignflow-gvc1.onrender.com"
+=======
+            "https://assignflow-gvc1.onrender.com",
+            "http://localhost:5173"
+>>>>>>> 47ddee5 (new')
         ));
 
         configuration.setAllowedMethods(Arrays.asList(
