@@ -7,6 +7,7 @@ com\assignment\system\repository\AssignmentRepository.class
 com\assignment\system\controller\StudentController.class
 com\assignment\system\payload\response\JwtResponse.class
 com\assignment\system\config\WebConfig.class
+com\assignment\system\controller\HomeController.class
 com\assignment\system\model\Course.class
 com\assignment\system\controller\GlobalExceptionHandler.class
 com\assignment\system\model\PasswordResetToken.class

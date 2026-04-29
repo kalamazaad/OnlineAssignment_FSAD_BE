@@ -11,6 +11,7 @@ E:\PROJECT_FSAD\backend\src\main\java\com\assignment\system\security\UserDetails
 E:\PROJECT_FSAD\backend\src\main\java\com\assignment\system\security\WebSecurityConfig.java
 E:\PROJECT_FSAD\backend\src\main\java\com\assignment\system\repository\CourseRepository.java
 E:\PROJECT_FSAD\backend\src\main\java\com\assignment\system\model\Role.java
+E:\PROJECT_FSAD\backend\src\main\java\com\assignment\system\controller\HomeController.java
 E:\PROJECT_FSAD\backend\src\main\java\com\assignment\system\AssignmentSystemApplication.java
 E:\PROJECT_FSAD\backend\src\main\java\com\assignment\system\payload\response\MessageResponse.java
 E:\PROJECT_FSAD\backend\src\main\java\com\assignment\system\security\AuthTokenFilter.java
